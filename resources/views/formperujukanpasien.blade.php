@@ -58,55 +58,57 @@
 	</ul>
 	<div class="container">
 		<div class="row">
-			<form class="col s11 offset-s2" method="POST" action="{{ url('/add/rujukans') }}">
-				{{ csrf_field() }}
-				<h2 style="text-decoration:underline;">DATA RUJUKAN</h2>
-				<div class="row">
-					<div class="input-field col s10">
-						<select name="id_pelayanan">
-							@foreach($pelayanans as $pelayanan)
-							<option value="{{$pelayanan->id_pelayanan}}">{{$pelayanan->id_pelayanan}}</option>
-							@endforeach
-						</select>		
-						<label for="icon_telephone">PILIH ID PELAYANAN</label>
+			<form class="col s7 offset-s1" method="POST" action="{{ url('/add/rujukans') }}">
+				<div class="card-panel">
+					{{ csrf_field() }}
+					<h2 style="text-decoration:underline;">DATA RUJUKAN</h2>
+					<div class="row">
+						<div class="input-field col s10">
+							<select name="id_pelayanan">
+								@foreach($pelayanans as $pelayanan)
+								<option value="{{$pelayanan->id_pelayanan}}">{{$pelayanan->id_pelayanan}}</option>
+								@endforeach
+							</select>		
+							<label for="icon_telephone">PILIH ID PELAYANAN</label>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s10">
-						<p>Tanggal Rujukan</p>
-						<input type="date" name="tanggal_rujukan" required>
+					<div class="row">
+						<div class="input-field col s10">
+							<p>Tanggal Rujukan</p>
+							<input type="date" name="tanggal_rujukan" required>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s10">
-						<input id="icon_telephone" type="tel" class="validate" name="keterangan" required>
-						<label for="Alamat">keterangan</label>
+					<div class="row">
+						<div class="input-field col s10">
+							<input id="icon_telephone" type="tel" class="validate" name="keterangan" required>
+							<label for="Alamat">keterangan</label>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s10">
-						<select name="tempat_rujukan" id="icon_telephone">
-							<option value="Rsud_Situbondo">RSUD SITUBONDO</option>
-							<option value="Rsud_Jember">RSUD JEMBER</option>
-							<option value="Rsud_Arjasa">RSUD ARJASA</option>
-							<option value="Jember_Klinik">JEMBER KLINIK</option>
-							<option value="Rsud_Patrang">RSUD PATRANG</option>
-							<option value="Rsud_Banyuwangi">RSUD BANYUWANGI</option>
-							<option value="Rsud_Malang">RSUD MALANG</option>
-						</select>
+					<div class="row">
+						<div class="input-field col s10">
+							<select name="tempat_rujukan" id="icon_telephone">
+								<option value="Rsud_Situbondo">RSUD SITUBONDO</option>
+								<option value="Rsud_Jember">RSUD JEMBER</option>
+								<option value="Rsud_Arjasa">RSUD ARJASA</option>
+								<option value="Jember_Klinik">JEMBER KLINIK</option>
+								<option value="Rsud_Patrang">RSUD PATRANG</option>
+								<option value="Rsud_Banyuwangi">RSUD BANYUWANGI</option>
+								<option value="Rsud_Malang">RSUD MALANG</option>
+							</select>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s10">
-						<input disabled value="Tidak Tervalidasi" id="disabled" type="text" class="validate" name="status_rujukan">
-						<label for="EMail">status rujukan
-						</label>
+					<div class="row">
+						<div class="input-field col s10">
+							<input disabled value="Tidak Tervalidasi" id="disabled" type="text" class="validate" name="status_rujukan">
+							<label for="EMail">status rujukan
+							</label>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-7">
-						<button type="submit" class="btn btn-primary btn-block" >SIMPAN</button> <br>
-						<button type="reset" class="btn btn-primary btn-block" >BATAL</button>
+					<div class="row">
+						<div class="col-md-7">
+							<button type="submit" class="btn btn-primary btn-block" >SIMPAN</button> <br>
+							<button type="reset" class="btn btn-primary btn-block" >BATAL</button>
+						</div>
 					</div>
 				</div>
 			</form>

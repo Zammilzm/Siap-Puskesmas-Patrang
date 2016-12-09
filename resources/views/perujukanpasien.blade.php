@@ -74,7 +74,6 @@
 						<th>ID Rujukan</th>
 						<th>ID Pelayanan</th>
 						<th>Nama Pasien</th>
-						<th>Umur</th>
 						<th>Tanggal Rujukan</th>
 						<th>Keterangan</th>
 						<th>Dokter Pemberi Rujukan</th>
@@ -88,7 +87,6 @@
 							<td>{{ $rujukan->id_rujukan }}</td>
 							<td>{{ $rujukan->id_pelayanan}}</td>
 							<td>{{ $rujukan->pelayanan->pendaftaran->pasien->nama_pasien}}</td>
-							<td>{{ $rujukan->pelayanan->pendaftaran->pasien->umur}}</td>
 							<td>{{ $rujukan->tanggal_rujukan }}</td>
 							<td>{{ $rujukan->keterangan }}</td>
 							<td>{{ $rujukan->pelayanan->pegawai->nama_pegawai}}</td>
