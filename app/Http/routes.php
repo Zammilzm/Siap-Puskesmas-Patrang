@@ -17,21 +17,22 @@ Route::get('/website', function () {
 Route::get('/perawat', function () {
     return view('homeperawat');
 });
-Route::get('rujukan','rujukanController@rujukan');
 
 Route::get('pemeriksaan','pelayananpemeriksaanController@pemeriksaan');
 
 Route::get('formpemeriksaan','pelayananpemeriksaanController@formpemeriksaan');
-
-Route::get('formrujukanpasien','rujukanController@formrujukan');
-
-Route::post('add/rujukans','rujukanController@addrujukan');
 
 Route::post('add/pemeriksaans','pelayananpemeriksaanController@addpemeriksaan');
 
 Route::get('edit/pelayanans/{id_pelayanan}','pelayananpemeriksaanController@editpemeriksaan'); 
 
 Route::put('update/pemeriksaans/{id_pelayanan}','pelayananpemeriksaanController@updatepemeriksaan'); 
+
+Route::get('rujukan','rujukanController@rujukan');
+
+Route::get('formrujukanpasien','rujukanController@formrujukan');
+
+Route::post('add/rujukans','rujukanController@addrujukan');
 
 Route::get('edit/rujukans/{id_rujukan}','rujukanController@editrujukan');
 
