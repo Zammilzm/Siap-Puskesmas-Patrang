@@ -65,7 +65,6 @@
 						<th>ID Tes Lab Dalam</th>
 						<th>ID Pelayanan</th>
 						<th>Nama Pasien</th>
-						<th>Umur</th>
 						<th>Golongan Darah</th>
 						<th>Diagnosa Penyakit</th>
 						<th>Tanggal tes</th>
@@ -77,7 +76,6 @@
 							<td>{{ $hasilteslab->id_tes_laboran_dalam }}</td>
 							<td>{{ $hasilteslab->id_pelayanan}}</td>
 							<td>{{ $hasilteslab->pelayanan->pendaftaran->pasien->nama_pasien }}</td>
-							<td>{{ $hasilteslab->pelayanan->pendaftaran->pasien->umur }}</td>
 							<td>{{ $hasilteslab->pelayanan->pendaftaran->pasien->golongan_darah }}</td>
 							<td>{{ $hasilteslab->pelayanan->diagnosa_penyakit }}</td>
 							<td>{{ $hasilteslab->tanggal_tes }}</td>

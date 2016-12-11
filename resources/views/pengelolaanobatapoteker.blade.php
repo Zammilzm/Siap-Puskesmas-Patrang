@@ -47,7 +47,6 @@
 						<th>ID Resep</th>
 						<th>ID Pelayanan</th>
 						<th>Nama Pasien</th>
-						<th>Umur</th>
 						<th>Diagnosa Penyakit</th>
 						<th>Resep Obat</th>
 						<th>Resep Apoteker</th>
@@ -59,7 +58,6 @@
 							<td>{{ $resep->id_resep }}</td>
 							<td>{{ $resep->id_pelayanan}}</td>
 							<td>{{ $resep->pelayanan->pendaftaran->pasien->nama_pasien}}</td>
-							<td>{{ $resep->pelayanan->pendaftaran->pasien->umur}}</td>
 							<td>{{ $resep->pelayanan->diagnosa_penyakit }}</td>
 							<td>{{ $resep->resep_obat }}</td>
 							<td>{{ $resep->resep_tersedia }}</td>

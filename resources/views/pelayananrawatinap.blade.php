@@ -74,13 +74,11 @@
 						<th>ID Rawat Inap</th>
 						<th>ID Pelayanan</th>
 						<th>Nama Pasien</th>
-						<th>Umur</th>
 						<th>ID Kamar</th>
 						<th>Nama Kamar</th>
 						<th>Jenis Kamar</th>
 						<th>No Kamar</th>
 						<th>Nama Pegawai</th>
-						<th>Lama Menginap</th>
 						<th>Keterangan Pelayanan</th>
 						<th>Aksi</th>
 					</thead>
@@ -90,13 +88,11 @@
 							<td>{{ $rawat->id_rawat_inap }}</td>
 							<td>{{ $rawat->id_pelayanan}}</td>	
 							<td>{{ $rawat->pelayanan->pendaftaran->pasien->nama_pasien}}</td>	
-							<td>{{ $rawat->pelayanan->pendaftaran->pasien->umur}}</td>	
 							<td>{{ $rawat->id_kamar}}</td>
 							<td>{{ $rawat->kamar->nama_kamar}}</td>
 							<td>{{ $rawat->kamar->jenis_kamar}}</td>
 							<td>{{ $rawat->kamar->no_kamar}}</td>
 							<td>{{ $rawat->pelayanan->pegawai->nama_pegawai}}</td>
-							<td>{{ $rawat->lama_menginap}}</td>
 							<td>{{ $rawat->Keterangan_Pelayanan}}</td>
 							<td>
 								<a href="/edit/rawats/{{$rawat->id_rawat_inap}}" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="UPDATE">
