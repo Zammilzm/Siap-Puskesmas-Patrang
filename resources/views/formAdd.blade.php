@@ -70,7 +70,7 @@
 				</div>
 				<div class="row">
 					<div class="input-field col s10">
-						<input id="icon_telephone" type="number" class="validate" name="no_kk" required >
+						<input id="icon_telephone" type="number" class="validate" name="no_kk" required>
 						<label for="Nokk">NO KK</label>
 					</div>
 				</div>
@@ -117,7 +117,7 @@
 				<div class="row">
 					<div class="col-md-7 offset-s2">
 						<button type="submit" class="btn btn-primary btn-block" >SIMPAN</button>
-						<br><button type="reset" class="btn btn-primary btn-block" >RESET</button>
+						<br><button type="reset" class="btn btn-primary btn-block" >BATAL</button>
 					</div>
 				</div>
 			</form>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!--Import materialize.css-->
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('asset/css/materialize.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('asset/css/styleuser.css') }}">
@@ -19,47 +19,47 @@
 					<img src="{{ URL::asset('/image/angga.jpg') }}">
 				</div>
 				<a href="#!user"><img class="circle" src="{{ URL::asset('/image/iconperawat.png') }}"></a>
-				<a href="#!name"><span class="white-text name">PERAWAT</span></a>
+				<a href="#!name"><span class="white-text name">LABORAN</span></a>
 			</div>
 		</li>
-		<li><a href="{{URL('perawat')}}" class="waves-effect" ><i class="material-icons">home</i>HOME</a></li>
+		<li><a href="{{URL('laboran')}}" class="waves-effect" ><i class="material-icons">home</i>HOME</a></li>
 		<li><div class="divider"></div></li>
-		<li><a href="{{URL('pemeriksaan')}}" class="waves-effect active" ><i class="material-icons active">face</i>PELAYANAN PEMERIKSAAN</a></li>
-		<li><div class="divider"></div></li>
-		<li>
+		<!-- <li><a href="{{URL('pemeriksaan')}}" class="waves-effect active" ><i class="material-icons active">face</i>PELAYANAN PEMERIKSAAN</a></li>
+		<li><div class="divider"></div></li> -->
+		<!-- <li>
 			<a class="waves-effect" href="{{URL('rujukan')}}" >PERUJUKAN PASIEN
 				<i class="material-icons">assignment</i>
 			</a>
 		</li>
-		<div class="divider"></div>
-		<li>
+		<div class="divider"></div> -->
+		<!-- <li>
 			<a class="waves-effect" href="{{URL('teslab')}}">LIHAT TES LAB DALAM
 				<i class="material-icons">assignment</i>
 			</a>
 		</li>
 
-		<div class="divider"></div>
+		<div class="divider"></div> -->
 
 		<li>
-			<a class="waves-effect" href="{{URL('resep')}}">PENGELOLAAN RESEP OBAT
+			<a class="waves-effect" href="{{URL('teslaboratorium')}}">PENGELOLAAN TES LAB
 				<i class="material-icons">assignment</i>
 			</a>
 		</li>
 
 		<div class="divider"></div>
 
-		<li>
-			<a class="waves-effect" href="{{URL('rawatinapperawat')}}">PENGELOLAAN RAWAT INAP
+		<!-- <li>
+			<a class="waves-effect" href="{{URL('rawatinap')}}">PENGELOLAAN RAWAT INAP
 				<i class="material-icons">assignment</i>
 			</a>
 		</li>
-		<div class="divider"></div>
+		<div class="divider"></div> -->
 		<li><a href="home.php" class="waves-effect" ><i class="material-icons">power_settings_new</i>LOG OUT</a></li>
 	</ul>
 	<div class="container">
 		<div class="row">
 			<div class="col s12 offset-s2">
-				<h2 style="text-align:center; padding:0 0 30px 0; text-decoration:underline;">DAFTAR PEMERIKSAAN</h2>
+				<h2 style="text-align:center; padding:0 0 30px 0; text-decoration:underline;">TES LABORATORIUM</h2>
 				@if(Session::has('flash_message'))
 				<div class="row">
 					<div class="card-panel teal lighten-2 chip">
@@ -68,34 +68,35 @@
 					</div>
 				</div>
 				@endif
-				<a href="{{URL('formpemeriksaan')}}" class="btn btn-primary">TAMBAH</a>
+				<a href="{{URL('formteslaboratorium')}}" class="btn btn-primary">TAMBAH</a>
 				<table class="table table-condensed table-hover striped" id="table_periksa">
 					<thead>
+						<th>ID Tes Lab</th>
 						<th>ID Pelayanan</th>
-						<th>ID Pendaftaran</th>
 						<th>Nama Pasien</th>
-						<th>Pilihan Layanan</th>
-						<th>Keluhan</th>
 						<th>Diagnosa Penyakit</th>
-						<th>Id Pegawai</th>
-						<th>Nama Pegawai</th>
-						<th>Saran Dokter</th>
-						<th>Aksi</th>
+						<th>Tanggal Tes</th>
+						<th>Hemoglobin</th>
+						<th>Leukosit</th>
+						<th>Trombosit</th>
+						<th>Hematoplit</th>
+						<th>Darah GDA</th>
 					</thead>
 					<tbody>
-						@foreach($periksapasien as $periksa)
+						@foreach($teslabs as $teslab)
 						<tr>
-							<td>{{ $periksa->id_pelayanan }}</td>
-							<td>{{ $periksa->id_pendaftaran}}</td>
-							<td>{{ $periksa->pendaftaran->pasien->nama_pasien}}</td>
-							<td>{{ $periksa->pendaftaran->poli->nama_poli}}</td>
-							<td>{{ $periksa->keluhan}}</td>
-							<td>{{ $periksa->diagnosa_penyakit }}</td>
-							<td>{{ $periksa->id_pegawai }}</td>
-							<td>{{ $periksa->pegawai->nama_pegawai}}</td>
-							<td>{{ $periksa->saran_dokter }}</td>
+							<td>{{ $teslab->id_tes_laboran_dalam }}</td>
+							<td>{{ $teslab->id_pelayanan}}</td>
+							<td>{{ $teslab->pelayanan->pendaftaran->pasien->nama_pasien}}</td>
+							<td>{{ $teslab->pelayanan->diagnosa_penyakit}}</td>
+							<td>{{ $teslab->tanggal_tes}}</td>
+							<td>{{ $teslab->hemoglobin }}</td>
+							<td>{{ $teslab->leukosit }}</td>
+							<td>{{ $teslab->trombosit }}</td>
+							<td>{{ $teslab->hematoplit }}</td>
+							<td>{{ $teslab->darah_gda }}</td>
 							<td>
-								<a href="/edit/pelayanans/{{$periksa->id_pelayanan}}" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="UPDATE">
+								<a href="/edit/teslaboratorium/{{$teslab->id_tes_laboran_dalam}}" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="UPDATE">
 									<i class="material-icons">event_available</i>
 								</a>
 							</td>

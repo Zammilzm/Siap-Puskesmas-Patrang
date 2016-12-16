@@ -52,6 +52,8 @@ Route::put('update/obats/{id_resep}','resepobatController@updateresep');
 
 Route::get('rawatinap','rawatinapController@rawatinap');
 
+Route::get('rawatinapperawat','rawatinapController@rawatinapperawat');
+
 Route::get('formrawatinap','rawatinapController@formrawatinap');
 
 Route::post('add/rawatinaps','rawatinapController@addrawatinap');
@@ -74,9 +76,7 @@ Route::get('edit/{id_pasien}','PasienController@editPasien');
 
 Route::put('update/{id_pasien}','PasienController@updatePasien');
 
-Route::get('form', function() { //www.webiste/form
-	return view('formAdd');
-});
+Route::get('form','PasienController@tampilFormPasien'); 
 
 Route::get('formPendaftaran', function() { //www.webiste/form
 	return view('pendaftaranFormAdd'); 
@@ -99,7 +99,7 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('bpjs','BpjsController@bpjs'); 
 
-Route::get('administrasiRawatInap','AdministrasiRIController@administrasiRI');
+Route::get('administrasiRawatInap','AdministrasiRIController@administrasi');
 
 Route::get('formAdministrasi','AdministrasiRIController@tampilFormAdministrasi'); 
 
@@ -114,3 +114,38 @@ Route::get('coba/{id_pasien}','cetak@cetak');
 Route::get('validasi','rujukanController@validasiRujukan');
 
 Route::get('edit/validasi/{id_rujukan}','rujukanController@validasi');
+
+Route::get('cekout/{id}','rawatinapController@cekOut');
+
+Route::get('/edit/lunas/{id_pembayaran_inap}','AdministrasiRIController@lunas');
+
+
+
+
+Route::get('lihatpemeriksaan','pelayananpemeriksaanController@lihatpemeriksaan');
+
+Route::get('lihatrawatinap','rawatinapController@lihatrawatinap');
+
+Route::get('perawatlihatkamar','kamarController@perawatlihatkamar');
+
+Route::get('lihatpegawai','pegawaiController@lihatpegawai');
+
+Route::get('datakamar','kamarController@kamar');
+
+Route::get('formdatakamar','kamarController@formkamar');
+
+Route::post('add/datakamar','kamarController@adddatakamar');
+
+Route::get('edit/datakamar/{id_kamar}','kamarController@editdatakamar');
+
+Route::put('update/datakamar/{id_kamar}','kamarController@updatedatakamar');
+
+Route::get('teslaboratorium','tes_lab_dalamController@teslaboratorium');
+
+Route::get('formteslaboratorium','tes_lab_dalamController@formteslab');
+
+Route::post('add/teslab','tes_lab_dalamController@addteslab');
+
+Route::get('edit/teslaboratorium/{id_tes_laboran_dalam}','tes_lab_dalamController@editteslab');
+
+Route::put('update/teslaboratorium/{id_tes_laboran_dalam}','tes_lab_dalamController@updateteslab');

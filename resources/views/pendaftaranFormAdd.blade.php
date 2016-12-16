@@ -105,7 +105,7 @@
 					<div class="row">
 						<div class="col-md-7 offset-s2">
 							<button type="submit" class="btn btn-primary btn-block" >SIMPAN</button>
-							<br><button type="reset" class="btn btn-primary btn-block" >RESET</button>
+							<br><button type="reset" class="btn btn-primary btn-block" >BATAL</button>
 						</div>
 					</div>
 				</form>

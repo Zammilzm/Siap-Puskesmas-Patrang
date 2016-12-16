@@ -35,6 +35,11 @@
 				<i class="material-icons">assignment</i>
 			</a>
 		</li>
+		<li>
+			<a class="waves-effect" href="{{URL('rawatinap')}}">PELAYANAN RAWAT INAP
+				<i class="material-icons">assignment</i>
+			</a>
+		</li>
 		<div class="divider"></div>
 		<li>
 			<a class="waves-effect" href="{{URL('administrasiRawatInap')}}">ADMINISTRASI RAWAT INAP
@@ -61,7 +66,7 @@
   					{{Session::get('flash_message')}}
 					</div>
 					@endif -->
-					<a href="{{URL('formPendaftaran')}}" class="btn btn-primary">TAMBAH PENDAFTAR</a>
+					<a href="{{URL('formPendaftaran')}}" class="btn btn-primary">TAMBAH</a>
 					<table class="table table-condensed table-hover " id="table_pendaftaran">
 					 <thead>
 					 	<th>ID Pendaftaran</th>
@@ -80,7 +85,7 @@
 				 		<td>{{ $pendaftaran->status}}</td>
 				 		<td>{{$pendaftaran->tanggal_periksa }}</td>
 				 		<td>
-				 		<a href="/edit/pendaftaran/{{$pendaftaran->id_pendaftaran}}" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="UPDATE">
+				 		<a href="/edit/pendaftaran/{{$pendaftaran->id_pendaftaran}}" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="EDIT">
 							<i class="material-icons">event_available</i>
 						</a>
 						</td>

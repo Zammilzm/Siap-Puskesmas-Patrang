@@ -35,9 +35,14 @@
 				<i class="material-icons">assignment</i>
 			</a>
 		</li>
+		<li>
+			<a class="waves-effect" href="{{URL('rawatinap')}}">PELAYANAN RAWAT INAP
+				<i class="material-icons">assignment</i>
+			</a>
+		</li>
 		<div class="divider"></div>
 		<li>
-			<a class="waves-effect" href="">ADMINISTRASI RAWAT INAP
+			<a class="waves-effect" href="{{URL('administrasiRawatInap')}}">ADMINISTRASI RAWAT INAP
 				<i class="material-icons">assignment</i>
 			</a>
 		</li>
@@ -65,30 +70,40 @@
 					<table class="table table-condensed table-hover " id="table_administrasi">
 						<thead>
 							<th>ID Pembayaran</th>
+							<th>Nama Pasien</th>
+
+							<th>Status Pasien</th>
+
 							<th>Lama Menginap</th>
 							<th>Total Pembayaran</th>
 							<th>Keterangan</th>
 							<th>aksi</th>
 						</thead>
 						<tbody>
-							@foreach($administrasi_rawat_inaps as $administrasiRawatInap)
+							@foreach($administrasiRawatInap as $administrasiRawatInap)
 							<tr>
 								<td>{{ $administrasiRawatInap->id_pembayaran_inap }}</td>
+								<td>{{ $administrasiRawatInap->rawatinap->pelayanan->pendaftaran->pasien->nama_pasien }}</td>
+								<td>{{ $administrasiRawatInap->rawatinap->pelayanan->pendaftaran->status == 1 ? 'BPJS' : 'Umum'  }}</td>
+							
+
 								<td>{{ $administrasiRawatInap->rawatinap->lama_menginap }}</td>
 								<td>{{ $administrasiRawatInap->total_pembayaran }}</td>
-								@if($administrasiRawatInap->keterangan_pembayaran  == '0')
+								<td>{{$administrasiRawatInap->keterangan_pembayaran}}</td>
+								<!-- @if($administrasiRawatInap->keterangan_pembayaran  == '1')
 								<td>Lunas</td>
 								@endif
-								@if($administrasiRawatInap->keterangan_pembayaran == '1')
+								@if($administrasiRawatInap->keterangan_pembayaran == '0')
 								<td>Belum Lunas</td>
-								@endif
+								@endif -->
+								
 								<td>
-									<a href="/edit/administrasi/{{$administrasiRawatInap->id_pembayaran_inap}}" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="UPDATE">
+									<a href="/edit/lunas/{{$administrasiRawatInap->id_pembayaran_inap}}" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="UPDATE">
 										<i class="material-icons">event_available</i>
 									</a>
 									<!-- <a href="#" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="HAPUS">
 										<i class="material-icons">block</i> -->
-									</a>
+									
 								</td>
 							</tr>
 							@endforeach

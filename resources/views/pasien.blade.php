@@ -35,6 +35,11 @@
 				<i class="material-icons">assignment</i>
 			</a>
 		</li>
+		<li>
+			<a class="waves-effect" href="{{URL('rawatinap')}}">PELAYANAN RAWAT INAP
+				<i class="material-icons">assignment</i>
+			</a>
+		</li>
 		<div class="divider"></div>
 		<li>
 			<a class="waves-effect" href="{{URL('administrasiRawatInap')}}">ADMINISTRASI RAWAT INAP
@@ -62,7 +67,7 @@
 					</div>
 				</div>
 				@endif
-					<a href="{{URL('form')}}" class="btn btn-primary">TAMBAH PASIEN</a>
+					<a href="{{URL('form')}}" class="btn btn-primary">TAMBAH</a>
 					<table class="table table-condensed table-hover striped" id="table_pasien">
 						<thead>
 							<th>ID Pasien</th>
@@ -97,7 +102,7 @@
 								@endif
 								<!-- <td>{{ $pasien->golongan_darah}}</td> -->
 								<td>
-									<a href="/edit/{{$pasien->id_pasien}}" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="UPDATE">
+									<a href="/edit/{{$pasien->id_pasien}}" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="EDIT">
 										<i class="material-icons">event_available</i>
 									</a>
 									<a href="/coba/{{$pasien->id_pasien}}" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="CETAK">

@@ -72,7 +72,6 @@
 						<th>ID Rujukan</th>
 						<th>ID Pelayanan</th>
 						<th>Nama Pasien</th>
-						<th>Umur</th>
 						<th>Tanggal Rujukan</th>
 						<th>Keterangan</th>
 						<th>Dokter Pemberi Rujukan</th>

@@ -19,84 +19,96 @@
 					<img src="{{ URL::asset('/image/angga.jpg') }}">
 				</div>
 				<a href="#!user"><img class="circle" src="{{ URL::asset('/image/iconperawat.png') }}"></a>
-				<a href="#!name"><span class="white-text name">PERAWAT</span></a>
+				<a href="#!name"><span class="white-text name">LABORAN</span></a>
 			</div>
 		</li>
-		<li><a href="{{URL('perawat')}}" class="waves-effect" ><i class="material-icons">home</i>HOME</a></li>
+		<li><a href="{{URL('laboran')}}" class="waves-effect" ><i class="material-icons">home</i>HOME</a></li>
 		<li><div class="divider"></div></li>
-		<li><a href="{{URL('pemeriksaan')}}" class="waves-effect" ><i class="material-icons">face</i>PELAYANAN PEMERIKSAAN</a></li>
-		<li><div class="divider"></div></li>
-		<li>
+		<!-- <li><a href="{{URL('pemeriksaan')}}" class="waves-effect" ><i class="material-icons">face</i>PELAYANAN PEMERIKSAAN</a></li>
+		<li><div class="divider"></div></li> -->
+		<!-- <li>
 			<a class="waves-effect" href="{{URL('rujukan')}}">PERUJUKAN PASIEN
 				<i class="material-icons">assignment</i>
 			</a>
 		</li>
-		<div class="divider"></div>
-		<li>
-			<a class="waves-effect" href="{{URL('teslab')}}">LIHAT TES LAB DALAM
+		<div class="divider"></div> -->
+		<!-- <li>
+			<a class="waves-effect"  href="{{URL('teslab')}}">LIHAT TES LAB DALAM
 				<i class="material-icons">assignment</i>
+			</a>
+		</li>
+
+		<div class="divider"></div> -->
+
+		<li>
+			<a class="waves-effect active" href="{{URL('resep')}}">PENGELOLAAN TES LAB
+				<i class="material-icons active">assignment</i>
 			</a>
 		</li>
 
 		<div class="divider"></div>
 
-		<li>
-			<a class="waves-effect" href="{{URL('resep')}}">PENGELOLAAN RESEP OBAT
+		<!-- <li>
+			<a class="waves-effect" href="{{URL('rawatinap')}}">PENGELOLAAN RAWAT INAP
 				<i class="material-icons">assignment</i>
 			</a>
 		</li>
-
-		<div class="divider"></div>
-
-		<li>
-			<a class="waves-effect active" href="{{URL('rawatinap')}}">PENGELOLAAN RAWAT INAP
-				<i class="material-icons">assignment</i>
-			</a>
-		</li>
-		<div class="divider"></div>
+		<div class="divider"></div> -->
 		<li><a href="home.php" class="waves-effect" ><i class="material-icons">power_settings_new</i>LOG OUT</a></li>
 	</ul>
 	<div class="container">
 		<div class="row">
-			<form class="col s11 offset-s2" method="POST" action="{{ url('/add/rawatinaps') }}">
+			<form class="col s11 offset-s2" method="POST" action="{{ url('/update/teslaboratorium/'.$datateslabs->id_tes_laboran_dalam) }}">
+				{{method_field('put')}}
 				{{ csrf_field() }}
-				<h2 style="text-decoration:underline;">DATA RUJUKAN</h2>
+				<h2 style="text-decoration:underline;">DATA TES LABORATORIUM</h2>
 				<div class="row">
 					<div class="input-field col s10">
-						<select name="id_pelayanan">
+						<select name="id_pelayanan" disabled>
 							@foreach($pelayanans as $pelayanan)
-							<option value="{{$pelayanan->id_pelayanan}}">{{$pelayanan->id_pelayanan}}</option>
+							<option {{($datateslabs->id_pelayanan==$pelayanan->id_pelayanan)?'selected':''}} value="{{$pelayanan->id_pelayanan}}">{{$pelayanan->id_pelayanan}}</option>
 							@endforeach
 						</select>		
-						<label for="icon_telephone">PILIH ID PELAYANAN</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="input-field col s10">
-						<select name="id_kamar">
-							@foreach($kamars as $kamar)
-							<option value="{{$kamar->id_kamar}}">{{$kamar->id_kamar}}</option>
-							@endforeach
-						</select>		
-						<label for="icon_telephone">PILIH ID KAMAR</label>
+						<p>Tanggal Tes</p>
+						<input type="date" name="tanggal_tes" value="{{$datateslabs->tanggal_tes}}" required>
 					</div>
 				</div>
 				<div class="row">
-					<div class="input-field col s10">
-						<input id="icon_telephone" type="number" class="validate" name="lama_menginap" disabled>
-						<label for="lama_menginap">Lama Menginap</label><tt><p>(Dalam Satuan HARI)</p></tt>
+					<div class="input-field col s5">
+						<input id="icon_telephone" type="number" class="validate" name="hemoglobin" value="{{$datateslabs->hemoglobin}}">
+						<label for="icon_telephone">Hemoglobin</label>
+					</div>
+					<div class="input-field col s5">
+						<input id="icon_telephone" type="number" class="validate" name="leukosit" value="{{$datateslabs->leukosit}}">
+						<label for="icon_telephone">Leukosit</label>
 					</div>
 				</div>
 				<div class="row">
-					<div class="input-field col s10">
-						<textarea id="textarea1" class="materialize-textarea" name="keterangan_pembayaran"></textarea>
-						<label for="textarea1" class="brown-text darken-4">Keterangan Pelayanan</label>
+					<div class="input-field col s5">
+						<input id="icon_telephone" type="number" class="validate" name="trombosit" value="{{$datateslabs->trombosit}}">
+						<label for="icon_telephone">trombosit</label>
+					</div>
+					<div class="input-field col s5">
+						<input id="icon_telephone" type="number" class="validate" name="hematoplit" value="{{$datateslabs->hematoplit}}">
+						<label for="icon_telephone">Hematoplit</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s5">
+						<input id="icon_telephone" type="number" class="validate" name="darah_gda" value="{{$datateslabs->darah_gda}}">
+						<label for="icon_telephone">Darah GDA</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-7">
-						<button type="submit" class="btn btn-primary btn-block" >SIMPAN</button> <br>
-						<button type="reset" class="btn btn-primary btn-block" >BATAL</button>
+						<button type="submit" class="btn btn-primary btn-block" >SIMPAN</button><br>
+						<a href="{{URL('teslaboratorium')}}" class="btn btn-primary">
+							BATAL
+						</a>
 					</div>
 				</div>
 			</form>

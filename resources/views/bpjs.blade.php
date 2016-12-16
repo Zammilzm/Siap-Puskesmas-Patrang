@@ -35,6 +35,11 @@
 				<i class="material-icons">assignment</i>
 			</a>
 		</li>
+		<li>
+			<a class="waves-effect" href="{{URL('rawatinap')}}">PELAYANAN RAWAT INAP
+				<i class="material-icons">assignment</i>
+			</a>
+		</li>
 		<div class="divider"></div>
 		<li>
 			<a class="waves-effect" href="{{URL('administrasiRawatInap')}}">ADMINISTRASI RAWAT INAP

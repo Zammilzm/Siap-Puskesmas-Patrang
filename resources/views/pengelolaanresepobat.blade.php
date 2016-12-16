@@ -50,7 +50,7 @@
 		<div class="divider"></div>
 
 		<li>
-			<a class="waves-effect" href="{{URL('rawatinap')}}">PENGELOLAAN RAWAT INAP
+			<a class="waves-effect" href="{{URL('rawatinapperawat')}}">PENGELOLAAN RAWAT INAP
 				<i class="material-icons">assignment</i>
 			</a>
 		</li>

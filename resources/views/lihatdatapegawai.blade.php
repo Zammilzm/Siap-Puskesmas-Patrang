@@ -19,21 +19,16 @@
 					<img src="{{ URL::asset('/image/angga.jpg') }}">
 				</div>
 				<a href="#!user"><img class="circle" src="{{ URL::asset('/image/iconperawat.png') }}"></a>
-				<a href="#!name"><span class="white-text name">PERAWAT</span></a>
+				<a href="#!name"><span class="white-text name">TATA USAHA</span></a>
 			</div>
 		</li>
-		<li><a href="{{URL('perawat')}}" class="waves-effect" ><i class="material-icons">home</i>HOME</a></li>
+		<li><a href="{{URL('tu')}}" class="waves-effect" ><i class="material-icons">home</i>HOME</a></li>
 		<li><div class="divider"></div></li>
-		<li><a href="{{URL('pemeriksaan')}}" class="waves-effect" ><i class="material-icons">face</i>PELAYANAN PEMERIKSAAN</a></li>
+		<li><a href="{{URL('datakamar')}}" class="waves-effect" ><i class="material-icons">face</i>PENGELOLAAN DATA KAMAR</a></li>
 		<li><div class="divider"></div></li>
+
 		<li>
-			<a class="waves-effect" href="{{URL('rujukan')}}">PERUJUKAN PASIEN
-				<i class="material-icons">assignment</i>
-			</a>
-		</li>
-		<div class="divider"></div>
-		<li>
-			<a class="waves-effect active" href="{{URL('teslab')}}">LIHAT TES LAB DALAM
+			<a class="waves-effect active" href="{{URL('lihatpemeriksaan')}}">LIHAT DATA PEGAWAI
 				<i class="material-icons active">assignment</i>
 			</a>
 		</li>
@@ -41,45 +36,47 @@
 		<div class="divider"></div>
 
 		<li>
-			<a class="waves-effect" href="{{URL('resep')}}">PENGELOLAAN RESEP OBAT
+			<a class="waves-effect" href="{{URL('#')}}">LIHAT DATA BPJS
 				<i class="material-icons">assignment</i>
 			</a>
 		</li>
 
 		<div class="divider"></div>
 
-		<li>
-			<a class="waves-effect" href="{{URL('rawatinapperawat')}}">PENGELOLAAN RAWAT INAP
-				<i class="material-icons">assignment</i>
-			</a>
-		</li>
-		<div class="divider"></div>
 		<li><a href="home.php" class="waves-effect" ><i class="material-icons">power_settings_new</i>LOG OUT</a></li>
 	</ul>
 	<div class="container">
 		<div class="row">
 			<div class="col s12 offset-s2">
-				<h2 style="text-align:center; padding:0 0 30px 0; text-decoration:underline;">DAFTAR TES UJI LAB PASIEN</h2>
+				<h2 style="text-align:center; padding:0 0 30px 0; text-decoration:underline;">LIHAT PEGAWAI</h2>
 				<table class="table table-condensed table-hover striped" id="table_lab">
 					<thead>
-						<th>ID Tes Lab Dalam</th>
-						<th>ID Pelayanan</th>
-						<th>Nama Pasien</th>
+						<th>ID Pegawai</th>
+						<th>Nama Pegawai</th>
+						<th>Status Pegawai</th>
+						<th>No KK</th>
+						<th>No KTP</th>
+						<th>Alamat</th>
+						<th>Tanggal Lahir</th>
 						<th>Golongan Darah</th>
-						<th>Diagnosa Penyakit</th>
-						<th>Tanggal tes</th>
-						<th>Hasil Tes Lab</th>
+						<th>Umur</th>
+						<th>Lulusan</th>
+						<th>Asal Pendidikan</th>
 					</thead>
 					<tbody>
-						@foreach($hasilteslabs as $hasilteslab)
+						@foreach($pegawais as $pegawai)
 						<tr>
-							<td>{{ $hasilteslab->id_tes_laboran_dalam }}</td>
-							<td>{{ $hasilteslab->id_pelayanan}}</td>
-							<td>{{ $hasilteslab->pelayanan->pendaftaran->pasien->nama_pasien }}</td>
-							<td>{{ $hasilteslab->pelayanan->pendaftaran->pasien->golongan_darah }}</td>
-							<td>{{ $hasilteslab->pelayanan->diagnosa_penyakit }}</td>
-							<td>{{ $hasilteslab->tanggal_tes }}</td>
-							<td>{{ $hasilteslab->hasil_tes_lab }}</td>
+							<td>{{ $pegawai->id_pegawai }}</td>
+							<td>{{ $pegawai->nama_pegawai }}</td>
+							<td>{{ $pegawai->status_pegawai }}</td>
+							<td>{{ $pegawai->no_kk }}</td>
+							<td>{{ $pegawai->no_ktp }}</td>
+							<td>{{ $pegawai->alamat }}</td>
+							<td>{{ $pegawai->tanggal_lahir }}</td>
+							<td>{{ $pegawai->golongan_darah }}</td>
+							<td>{{ $pegawai->umur }}</td>
+							<td>{{ $pegawai->lulusan }}</td>
+							<td>{{ $pegawai->asal_pendidikan }}</td>
 						</tr>
 						@endforeach
 					</tbody>

@@ -56,11 +56,11 @@ class rawatinapController extends Controller
 			'id_pelayanan' => $request->id_pelayanan,
 			'id_kamar' => $request->id_kamar,
 			'lama_menginap' => $request->lama_menginap,
-			'keterangan_pembayaran' => $request->keterangan_pembayaran,
+			'Keterangan_Pelayanan' => $request->Keterangan_Pelayanan,
 			]);
 		rawat_inap::create($input);
 		Session::flash('flash_message', 'data berhasil disimpan');
-		return redirect('rawatinapperawat');
+		return redirect('rawatinap');
 	}
 	public function editrawatinap($id_rawat_inap)
 	{
@@ -91,7 +91,7 @@ class rawatinapController extends Controller
 		$tanggal = $rawatinap->pelayanan->pendaftaran->tanggal_periksa;
 
 		$lama = DB::table('rawat_inaps')->select(DB::raw("datediff(curdate(),'$tanggal') as lama"))->first();
-
+		return $lama;
 		$harga = $rawatinap->kamar->tarif_kamar*$lama->lama;
 
 		$rawatinap->lama_menginap = $lama->lama;
